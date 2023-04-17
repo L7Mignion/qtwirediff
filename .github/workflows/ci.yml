@@ -28,15 +28,17 @@ jobs:
     steps:
     - name: MSVC Environment Setup
       uses: ilammy/msvc-dev-cmd@v1
+      with:
+        vsversion: "2019"
     - name: checkout
       uses: actions/checkout@v3
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '5.15.2'
-        host: 'windows'
-        target: 'desktop'
-        arch: 'win64_msvc2019_64'
+        version: "5.15.2"
+        host: "windows"
+        target: "desktop"
+        arch: "win64_msvc2019_64"
     - name: Create Makefile
       run: qmake qtwirediff.pro
     - name: Run MakeFile
