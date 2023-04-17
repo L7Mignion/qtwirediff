@@ -8,25 +8,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_ubuntu:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: install deps
-      run: sudo apt-get install build-essential qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools tshark
-    - name: qmake
-      run: qmake
-    - name: make
-      run: make
+  # build_ubuntu:
+  # 
+  #   runs-on: ubuntu-latest
+  # 
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: install deps
+  #     run: sudo apt-get install build-essential qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools tshark
+  #   - name: qmake
+  #     run: qmake
+  #   - name: make
+  #     run: make
 
   build_windows:
 
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: MSVC Environment Setup
+      uses: ilammy/msvc-dev-cmd@v1
+    - name: checkout
+      uses: actions/checkout@v3
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
@@ -34,8 +37,8 @@ jobs:
         host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2019_64'
-    - name: qmake
-      run: qmake
-    - name: make
+    - name: Create Makefile
+      run: qmake qtwirediff.pro
+    - name: Run MakeFile
       run: make
 
