@@ -42,4 +42,6 @@ jobs:
     - name: Run MakeFile
       # run: make
       run: cl
+    - name: Run
+      run: qtwirediff.exe
 
