@@ -40,5 +40,5 @@ jobs:
     - name: Create Makefile
       run: qmake qtwirediff.pro
     - name: Run MakeFile
-      run: make
+      run: cmake
 
