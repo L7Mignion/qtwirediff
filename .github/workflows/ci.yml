@@ -38,7 +38,7 @@ jobs:
     - name: MSVC Environment Setup
       uses: ilammy/msvc-dev-cmd@v1
     - name: Create Makefile
-      run: qmake qtwirediff.pro
+      run: qmake qtwirediff.pro -spec win32-msvc
     - name: Run MakeFile
-      run: cmake
+      run: make
 
