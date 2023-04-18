@@ -26,8 +26,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: MSVC Environment Setup
-      uses: ilammy/msvc-dev-cmd@v1
     - name: checkout
       uses: actions/checkout@v3
     - name: Install Qt
@@ -37,6 +35,8 @@ jobs:
         host: "windows"
         target: "desktop"
         arch: "win64_msvc2019_64"
+    - name: MSVC Environment Setup
+      uses: ilammy/msvc-dev-cmd@v1
     - name: Create Makefile
       run: qmake qtwirediff.pro
     - name: Run MakeFile
