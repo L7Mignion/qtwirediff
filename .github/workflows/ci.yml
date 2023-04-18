@@ -28,8 +28,6 @@ jobs:
     steps:
     - name: MSVC Environment Setup
       uses: ilammy/msvc-dev-cmd@v1
-      with:
-        vsversion: "2019"
     - name: checkout
       uses: actions/checkout@v3
     - name: Install Qt
@@ -40,7 +38,7 @@ jobs:
         target: "desktop"
         arch: "win64_msvc2019_64"
     - name: Create Makefile
-      run: qmake qtwirediff.pro
+      run: qmake qtwirediff.pro -spec winrt-x64-msvc2019
     - name: Run MakeFile
       run: make
 
