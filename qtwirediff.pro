@@ -24,8 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
+    main.cpp \
+    mainwindow.cpp \
     trace.cpp \
     diff.cpp \
     tracemodel.cpp \
@@ -40,9 +40,16 @@ SOURCES += \
     sessionitem.cpp
 
 HEADERS += \
-        mainwindow.h \
+    mainwindow.h \
     trace.h \
-    dtl/*.hpp \
+    dtl/Diff.hpp \
+    dtl/Diff3.hpp \
+    dtl/Lcs.hpp \
+    dtl/Sequence.hpp \
+    dtl/Ses.hpp \
+    dtl/dtl.hpp \
+    dtl/functors.hpp \
+    dtl/variables.hpp \
     tracemodel.h \
     diff.h \
     difflinedelegate.h \
