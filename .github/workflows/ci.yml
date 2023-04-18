@@ -40,5 +40,6 @@ jobs:
     - name: Create Makefile
       run: qmake qtwirediff.pro -spec win32-msvc
     - name: Run MakeFile
-      run: make
+      # run: make
+      run: cl
 
