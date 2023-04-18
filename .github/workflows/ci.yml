@@ -38,7 +38,7 @@ jobs:
         target: "desktop"
         arch: "win64_msvc2019_64"
     - name: Create Makefile
-      run: qmake qtwirediff.pro -spec winrt-x64-msvc2019
+      run: qmake qtwirediff.pro
     - name: Run MakeFile
       run: make
 
