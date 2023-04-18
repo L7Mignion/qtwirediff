@@ -41,7 +41,7 @@ jobs:
       run: qmake qtwirediff.pro -spec win32-msvc
     - name: Run MakeFile
       # run: make
-      run: cl
+      run: cl main.cpp
     - name: Run
       run: qtwirediff.exe
 
