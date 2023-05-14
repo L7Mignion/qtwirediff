@@ -39,6 +39,8 @@ jobs:
         host: "windows"
         target: "desktop"
         arch: "win64_msvc2019_64"
+    - name: Install Ilammy
+      uses: ilammy/msvc-dev-cmd@v1
     - name: Create Makefile
       run: |
          ls ..
@@ -47,7 +49,9 @@ jobs:
          qmake qtwirediff.pro
     - name: Run MakeFile
       # run: make
-      run: cl main.cpp
+      run: |
+         ls
+         nmake
     - name: Check if we got something
       run: tree
 
