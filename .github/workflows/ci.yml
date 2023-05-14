@@ -26,10 +26,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: checkout
+    - name: Checkout project
       uses: actions/checkout@v3
-    - name: check where we are
-      run: ls
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
@@ -42,13 +40,8 @@ jobs:
     - name: Install Ilammy
       uses: ilammy/msvc-dev-cmd@v1
     - name: Create Makefile
-      run: |
-         ls ..
-         ls ..\Qt
-         Set-Item -Path Env:Path -Value ("D:\a\qtwirediff\Qt\5.15.2\msvc2019_64\bin;" + $Env:Path)
-         qmake qtwirediff.pro
+      run: qmake
     - name: Compile App
-      # run: make
       run: |
          ls
          nmake
