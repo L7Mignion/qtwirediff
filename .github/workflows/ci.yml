@@ -47,11 +47,13 @@ jobs:
          ls ..\Qt
          Set-Item -Path Env:Path -Value ("D:\a\qtwirediff\Qt\5.15.2\msvc2019_64\bin;" + $Env:Path)
          qmake qtwirediff.pro
-    - name: Run MakeFile
+    - name: Compile App
       # run: make
       run: |
          ls
          nmake
     - name: Check if we got something
-      run: tree
+      run: |
+         ls release
+         .\release\qtwirediff.exe
 
