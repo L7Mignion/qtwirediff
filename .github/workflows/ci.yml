@@ -41,7 +41,9 @@ jobs:
         arch: "win64_msvc2019_64"
     - name: Create Makefile
       run: |
-         ls
+         ls ..
+         ls ..\Qt
+         Set-Item -Path Env:Path -Value ("D:\a\qtwirediff\Qt\5.15.2\msvc2019_64\bin;" + $Env:Path)
          qmake qtwirediff.pro
     - name: Run MakeFile
       # run: make
