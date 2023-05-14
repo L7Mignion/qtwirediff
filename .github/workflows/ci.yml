@@ -28,20 +28,24 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
+    - name: check where we are
+      run: ls
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
+        aqtversion: '==3.1.*'
+        py7zrversion: '>=0.20.2'
         version: "5.15.2"
         host: "windows"
         target: "desktop"
         arch: "win64_msvc2019_64"
-    - name: MSVC Environment Setup
-      uses: ilammy/msvc-dev-cmd@v1
     - name: Create Makefile
-      run: qmake qtwirediff.pro -spec win32-msvc
+      run: |
+         ls
+         qmake qtwirediff.pro
     - name: Run MakeFile
       # run: make
       run: cl main.cpp
-    - name: Run
-      run: qtwirediff.exe
+    - name: Check if we got something
+      run: tree
 
